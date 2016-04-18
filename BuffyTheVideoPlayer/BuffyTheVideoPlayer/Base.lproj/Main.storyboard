@@ -3,13 +3,12 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="BuffyTheVideoPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="BVPViewController" customModule="BuffyTheVideoPlayer" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -19,20 +18,63 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ooe-Zc-huM" customClass="BVPPlayerView" customModule="BuffyTheVideoPlayer" customModuleProvider="target">
-                                <rect key="frame" x="200" y="50" width="200" height="200"/>
+                                <rect key="frame" x="200" y="20" width="200" height="200"/>
                                 <color key="backgroundColor" red="0.93113833665847778" green="0.70376378297805786" blue="0.18512412905693054" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="7Mq-Mu-QbZ"/>
                                     <constraint firstAttribute="width" constant="200" id="NkQ-7t-xVL"/>
                                 </constraints>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="AF5-hB-tla">
+                                <rect key="frame" x="10" y="230" width="580" height="360"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bvpcell" textLabel="0yb-fV-srr" detailTextLabel="YUk-qY-kIh" style="IBUITableViewCellStyleSubtitle" id="vWj-FV-QQK">
+                                        <rect key="frame" x="0.0" y="28" width="580" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vWj-FV-QQK" id="9Hr-MZ-oaa">
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="0yb-fV-srr">
+                                                    <rect key="frame" x="15" y="5" width="32" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="YUk-qY-kIh">
+                                                    <rect key="frame" x="15" y="25" width="31" height="14"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </tableViewCellContentView>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="ij0-TJ-pUh"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="zkd-th-fKo"/>
+                                </connections>
+                            </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.93052083253860474" green="0.8774794340133667" blue="0.96891540288925171" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Ooe-Zc-huM" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" multiplier="0.5" id="3wS-Xa-Elu"/>
+                            <constraint firstItem="AF5-hB-tla" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" constant="-20" id="KBs-xm-5Zu"/>
+                            <constraint firstItem="AF5-hB-tla" firstAttribute="bottom" secondItem="8bC-Xf-vdC" secondAttribute="bottom" constant="-10" id="PLZ-C5-Vdh"/>
+                            <constraint firstItem="Ooe-Zc-huM" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="hgj-BA-T6n"/>
+                            <constraint firstItem="AF5-hB-tla" firstAttribute="top" secondItem="Ooe-Zc-huM" secondAttribute="bottom" constant="10" id="imA-Mx-MQy"/>
                             <constraint firstItem="Ooe-Zc-huM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="s96-qD-ru8"/>
+                            <constraint firstItem="AF5-hB-tla" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="scf-Vx-RWB"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="playerView" destination="Ooe-Zc-huM" id="w3D-OU-DtG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
