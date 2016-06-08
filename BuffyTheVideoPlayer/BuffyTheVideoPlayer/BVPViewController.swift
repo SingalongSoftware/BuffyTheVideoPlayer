@@ -29,19 +29,18 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
     
     print("\(videos)")
     
-    self.media.removeAll()
-    
-    videos.enumerateObjectsUsingBlock(
-      { (enumeratedObject, index, stopPointer) in
-        
-        dispatch_sync(dispatch_queue_create(self.syncLock, nil))
-        {
+    dispatch_sync(dispatch_queue_create(self.syncLock, nil))
+    {
+      self.media.removeAll()
+      
+      videos.enumerateObjectsUsingBlock(
+        { (enumeratedObject, index, stopPointer) in
           
           let video = enumeratedObject as! PHAsset
           let imageManager = PHImageManager.defaultManager()
           
           imageManager.requestAVAssetForVideo(video, options: nil, resultHandler:
-            { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
+          { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
               
               let avUrlAsset = avAsset as? AVURLAsset
               print("\(index) \(avUrlAsset?.URL.absoluteString)")
@@ -58,12 +57,8 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
                 
               }
           })
-          
-        }
-        
-    })
-    
-    
+      })
+    }
   }
   
   // MARK: UITableViewDataSource
