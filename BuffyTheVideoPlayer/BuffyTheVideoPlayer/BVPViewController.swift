@@ -12,7 +12,7 @@ import Photos
 class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
   let syncLock = "BVPViewController.lock"
-  var media:[(index:Int, phAsset:PHAsset?, urlString:String?)] = [];
+  var media:[(index:Int, phAsset:PHAsset?, url:NSURL?)] = [];
   
   @IBOutlet weak var videoList: UITableView!
   
@@ -45,7 +45,7 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
               let avUrlAsset = avAsset as? AVURLAsset
               print("\(index) \(avUrlAsset?.URL.absoluteString)")
               
-              self.media.append((index, nil, avUrlAsset?.URL.absoluteString))
+              self.media.append((index, nil, avUrlAsset?.URL))
               
               if self.media.count == videos.count
               {
@@ -76,12 +76,12 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueReusableCellWithIdentifier("bvpcell")!;
-    let urlString = self.media[indexPath.row].urlString
-    let videoFileName = urlString?.substringFromIndex((urlString?.rangeOfString("/", options: .BackwardsSearch)!.startIndex)!.advancedBy(1))
+    let urlString = self.media[indexPath.row].url!.absoluteString
+    let videoFileName = urlString.substringFromIndex((urlString.rangeOfString("/", options: .BackwardsSearch)!.startIndex).advancedBy(1))
     cell.textLabel?.text = videoFileName
     cell.detailTextLabel?.text = "\(NSDate())"
     
-    print("cell for row \(indexPath.row), movie=\(videoFileName!) count = \(self.media.count)")
+    print("cell for row \(indexPath.row), movie=\(videoFileName) count = \(self.media.count)")
     
     
     return cell
@@ -91,7 +91,7 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-    guard let videoAddress = self.media[indexPath.row].urlString else {return}
+    guard let videoAddress = self.media[indexPath.row].url?.absoluteString else {return}
     print("Play \(videoAddress)")
   }
   
