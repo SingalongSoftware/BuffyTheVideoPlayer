@@ -14,6 +14,7 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   let syncLock = "BVPViewController.lock"
   var media:[(index:Int, phAsset:PHAsset?, url:NSURL?)] = [];
   
+  @IBOutlet weak var playerView: BVPPlayerView!
   @IBOutlet weak var videoList: UITableView!
   
   override func viewDidLoad()
@@ -91,8 +92,9 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-    guard let videoAddress = self.media[indexPath.row].url?.absoluteString else {return}
-    print("Play \(videoAddress)")
+    guard let videoUrl = self.media[indexPath.row].url else {return}
+
+    playerView.playUrl(videoUrl)
   }
   
   

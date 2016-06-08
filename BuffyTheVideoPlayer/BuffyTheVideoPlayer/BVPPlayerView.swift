@@ -13,12 +13,26 @@ import Photos
 
 class BVPPlayerView: UIView
 {
-
-    var player = AVPlayer()
-
-    func play(videoAsset:PHAsset)
-    {
-        
-    }
+  var player = AVPlayer()
+  var playerLayer = AVPlayerLayer()
+  
+  func play(videoAsset:PHAsset)
+  {
+  }
+  
+  func playUrl(videoUrl:NSURL)
+  {
+    print ("Now playing: \(videoUrl.absoluteString)")
     
+    let item = AVPlayerItem(URL: videoUrl)
+    player = AVPlayer(playerItem: item)
+    playerLayer = AVPlayerLayer(player: player)
+    
+    playerLayer.frame = bounds
+    
+    layer.addSublayer(playerLayer)
+    
+    player.play()
+  }
+  
 }
