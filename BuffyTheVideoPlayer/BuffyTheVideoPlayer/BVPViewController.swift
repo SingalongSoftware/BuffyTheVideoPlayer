@@ -9,12 +9,13 @@
 import UIKit
 import Photos
 
-class BVPViewController: UIViewController, UITableViewDataSource
+class BVPViewController: UIViewController, UITableViewDataSource//, UITableViewDelegate
 {
 
     var media:[(index:Int, phAsset:PHAsset?, urlString:String?)] = [];
     
     @IBOutlet weak var playerView: BVPPlayerView!
+    
     @IBOutlet weak var videoList: UITableView!
     
     override func viewDidLoad()
@@ -30,43 +31,51 @@ class BVPViewController: UIViewController, UITableViewDataSource
         
         print("\(videos)")
         
-        videos.enumerateObjectsUsingBlock(
-        { (enumeratedObject, index, stopPointer) in
-            let video = enumeratedObject as! PHAsset
-            let imageManager = PHImageManager.defaultManager()
-            
-            
-            imageManager.requestAVAssetForVideo(video, options: nil, resultHandler:
-            { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
-                
-                let avUrlAsset = avAsset as? AVURLAsset
-                print("\(index) \(avUrlAsset?.URL.absoluteString)")
-                
-                self.media.append((index, nil, avUrlAsset?.URL.absoluteString))
-
-                if self.media.count >= videos.count
-                {
-                    dispatch_async(dispatch_get_main_queue(),{
-                        self.videoList.reloadData()
-                    })
-                
-                    print("reload")
-                    
-                }
-            })
-            
-        })
+        self.media.removeAll()
+        
+        self.media.append((0, nil, "/A"))
+        self.media.append((1, nil, "/B"))
+        self.media.append((2, nil, "/C"))
+        
+//        videos.enumerateObjectsUsingBlock(
+//        { (enumeratedObject, index, stopPointer) in
+//            let video = enumeratedObject as! PHAsset
+//            let imageManager = PHImageManager.defaultManager()
+//            
+//            
+//            imageManager.requestAVAssetForVideo(video, options: nil, resultHandler:
+//            { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
+//                
+//                let avUrlAsset = avAsset as? AVURLAsset
+//                print("\(index) \(avUrlAsset?.URL.absoluteString)")
+//                
+//                self.media.append((index, nil, avUrlAsset?.URL.absoluteString))
+//
+//                if self.media.count == videos.count
+//                {
+//                    dispatch_async(dispatch_get_main_queue(),{
+//                        self.videoList.reloadData()
+//                    })
+//                
+//                    print("reload")
+//                    
+//                }
+//            })
+//            
+//        })
         
 
     }
     
-     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    // MARK: UITableViewDataSource
+    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        print ("number of rows = \(self.media.count)")
+        print ("number of rows = \(self.media.count) in section \(section)")
         return self.media.count
     }
     
@@ -83,6 +92,21 @@ class BVPViewController: UIViewController, UITableViewDataSource
         
         return cell
     }
+    
+    // MARK: UITableViewDelegate
+    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//        guard let videoAddress = self.media[indexPath.row].urlString else {return}
+//        print("Play \(videoAddress)")
+//    }
+    
+    // MARK: Orientation
+    
+//    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation)
+//    {
+//        loadVideoList()
+//    }
     
 }
 

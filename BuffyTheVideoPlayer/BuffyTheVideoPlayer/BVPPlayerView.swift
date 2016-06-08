@@ -8,19 +8,17 @@
 
 import UIKit
 import AVFoundation
+import Photos
+
 
 class BVPPlayerView: UIView
 {
 
     var player = AVPlayer()
 
-    
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+    func play(videoAsset:PHAsset)
+    {
+        
     }
-    */
-
+    
 }
