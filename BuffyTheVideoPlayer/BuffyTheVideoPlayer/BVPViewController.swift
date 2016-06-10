@@ -11,7 +11,7 @@ import Photos
 
 class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
-  var catalogue = BVPCatalogue()
+  var videoCatalogue = BVPCatalogue()
   
   @IBOutlet weak var playerView: BVPPlayerView!
   @IBOutlet weak var videoList: UITableView!
@@ -26,7 +26,7 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func loadVideoList()
   {
-    catalogue.fetch { 
+    videoCatalogue.fetch(.Video) {
       dispatch_async(dispatch_get_main_queue(),{
         self.videoList.reloadData()
       })
@@ -43,19 +43,19 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    print ("number of rows = \(self.catalogue.count) in section \(section)")
-    return self.catalogue.count
+    print ("number of rows = \(self.videoCatalogue.count) in section \(section)")
+    return self.videoCatalogue.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueReusableCellWithIdentifier("bvpcell")!;
-    let urlString = self.catalogue[indexPath.row].url.absoluteString
+    let urlString = self.videoCatalogue[indexPath.row].url.absoluteString
     let videoFileName = urlString.substringFromIndex((urlString.rangeOfString("/", options: .BackwardsSearch)!.startIndex).advancedBy(1))
     cell.textLabel?.text = videoFileName
     cell.detailTextLabel?.text = "\(NSDate())"
     
-    print("cell for row \(indexPath.row), movie=\(videoFileName) count = \(self.catalogue.count)")
+    print("cell for row \(indexPath.row), movie=\(videoFileName) count = \(self.videoCatalogue.count)")
     
     
     return cell
@@ -65,10 +65,7 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-    let mediaData = self.catalogue[indexPath.row]
-
-    playerView.playPHAsset(mediaData.asset)
-
+    let mediaData = self.videoCatalogue[indexPath.row]
     playerView.playUrl(mediaData.url)
   }
   

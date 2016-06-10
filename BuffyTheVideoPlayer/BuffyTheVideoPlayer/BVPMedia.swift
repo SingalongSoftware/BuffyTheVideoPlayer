@@ -11,7 +11,6 @@ import Photos
 
 class BVPMedia
 {
-
   var index:Int
   var asset:PHAsset
   var url:NSURL

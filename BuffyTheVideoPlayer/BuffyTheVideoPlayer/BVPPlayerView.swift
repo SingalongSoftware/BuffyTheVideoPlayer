@@ -47,11 +47,6 @@ class BVPPlayerView: UIView
     play()
   }
   
-  func playPHAsset(asset:PHAsset)
-  {
-    print ("local id = \(asset.localIdentifier)")
-  }
-  
   func redraw()
   {
     CATransaction.begin()

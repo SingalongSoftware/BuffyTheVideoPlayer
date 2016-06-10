@@ -33,9 +33,9 @@ class BVPCatalogue
     }
   }
   
-  func fetch(completion:(() -> Void)?)
+  func fetch(type:PHAssetMediaType, completion:(() -> Void)?)
   {
-    let videos = PHAsset.fetchAssetsWithMediaType(.Video, options:nil)
+    let videos = PHAsset.fetchAssetsWithMediaType(type, options:nil)
     
     print("\(videos)")
     
@@ -50,7 +50,7 @@ class BVPCatalogue
           let imageManager = PHImageManager.defaultManager()
           
           imageManager.requestAVAssetForVideo(video, options: nil, resultHandler:
-            { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
+          { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
               
               let avUrlAsset = avAsset as? AVURLAsset
               print("\(index) \(avUrlAsset?.URL.absoluteString)")
@@ -60,7 +60,7 @@ class BVPCatalogue
               print ("\(self.media.count) =?= \(videos.count)")
               if self.media.count == videos.count
               {
-                  completion?()
+                completion?()
               }
           })
       })
