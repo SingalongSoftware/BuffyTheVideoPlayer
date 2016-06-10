@@ -11,11 +11,11 @@ import Photos
 
 class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
-  let syncLock = "BVPViewController.lock"
-  var media:[(index:Int, phAsset:PHAsset?, url:NSURL?)] = [];
+  var catalogue = BVPCatalogue()
   
   @IBOutlet weak var playerView: BVPPlayerView!
   @IBOutlet weak var videoList: UITableView!
+
   
   override func viewDidLoad()
   {
@@ -26,39 +26,12 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func loadVideoList()
   {
-    let videos = PHAsset.fetchAssetsWithMediaType(.Video, options:nil)
-    
-    print("\(videos)")
-    
-    dispatch_sync(dispatch_queue_create(self.syncLock, nil))
-    {
-      self.media.removeAll()
-      
-      videos.enumerateObjectsUsingBlock(
-        { (enumeratedObject, index, stopPointer) in
-          
-          let video = enumeratedObject as! PHAsset
-          let imageManager = PHImageManager.defaultManager()
-          
-          imageManager.requestAVAssetForVideo(video, options: nil, resultHandler:
-          { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
-              
-              let avUrlAsset = avAsset as? AVURLAsset
-              print("\(index) \(avUrlAsset?.URL.absoluteString)")
-              
-              self.media.append((index, nil, avUrlAsset?.URL))
-              
-              if self.media.count == videos.count
-              {
-                dispatch_async(dispatch_get_main_queue(),{
-                  self.videoList.reloadData()
-                })
-                
-                print("reload")
-                
-              }
-          })
+    catalogue.fetch { 
+      dispatch_async(dispatch_get_main_queue(),{
+        self.videoList.reloadData()
       })
+      
+      print("reload")
     }
   }
   
@@ -70,19 +43,19 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
   {
-    print ("number of rows = \(self.media.count) in section \(section)")
-    return self.media.count
+    print ("number of rows = \(self.catalogue.count) in section \(section)")
+    return self.catalogue.count
   }
   
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
   {
     let cell = tableView.dequeueReusableCellWithIdentifier("bvpcell")!;
-    let urlString = self.media[indexPath.row].url!.absoluteString
+    let urlString = self.catalogue[indexPath.row].url.absoluteString
     let videoFileName = urlString.substringFromIndex((urlString.rangeOfString("/", options: .BackwardsSearch)!.startIndex).advancedBy(1))
     cell.textLabel?.text = videoFileName
     cell.detailTextLabel?.text = "\(NSDate())"
     
-    print("cell for row \(indexPath.row), movie=\(videoFileName) count = \(self.media.count)")
+    print("cell for row \(indexPath.row), movie=\(videoFileName) count = \(self.catalogue.count)")
     
     
     return cell
@@ -92,10 +65,13 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-    guard let videoUrl = self.media[indexPath.row].url else {return}
+    let mediaData = self.catalogue[indexPath.row]
 
-    playerView.playUrl(videoUrl)
+    playerView.playPHAsset(mediaData.asset)
+
+    playerView.playUrl(mediaData.url)
   }
+  
   
   
 }

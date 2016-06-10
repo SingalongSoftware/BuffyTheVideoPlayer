@@ -15,24 +15,50 @@ class BVPPlayerView: UIView
 {
   var player = AVPlayer()
   var playerLayer = AVPlayerLayer()
+  var playerItem: AVPlayerItem?
   
-  func play(videoAsset:PHAsset)
+  override func layoutSubviews()
   {
+    redraw()
+    super.layoutSubviews()
+  }
+  
+  override func layoutSublayersOfLayer(layer: CALayer) {
+    super.layoutSublayersOfLayer(layer)
+  }
+  
+  func play()
+  {
+    guard let item = playerItem else {return}
+    
+    player = AVPlayer(playerItem: item)
+    playerLayer = AVPlayerLayer(player: player)
+    playerLayer.frame = bounds
+    layer.addSublayer(playerLayer)
+    
+    player.play()
+
   }
   
   func playUrl(videoUrl:NSURL)
   {
     print ("Now playing: \(videoUrl.absoluteString)")
-    
-    let item = AVPlayerItem(URL: videoUrl)
-    player = AVPlayer(playerItem: item)
-    playerLayer = AVPlayerLayer(player: player)
-    
-    playerLayer.frame = bounds
-    
-    layer.addSublayer(playerLayer)
-    
-    player.play()
+    playerItem = AVPlayerItem(URL: videoUrl)
+    play()
   }
+  
+  func playPHAsset(asset:PHAsset)
+  {
+    print ("local id = \(asset.localIdentifier)")
+  }
+  
+  func redraw()
+  {
+    CATransaction.begin()
+    CATransaction.setDisableActions(false)
+    playerLayer.frame = bounds
+    CATransaction.commit()
+  }
+  
   
 }

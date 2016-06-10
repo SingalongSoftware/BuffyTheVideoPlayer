@@ -14,6 +14,8 @@
 		122F10B21CAEEE8900123672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122F10B01CAEEE8900123672 /* LaunchScreen.storyboard */; };
 		122F10BD1CAEEE8900123672 /* BuffyTheVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F10BC1CAEEE8900123672 /* BuffyTheVideoPlayerTests.swift */; };
 		122F10C81CAEEFFB00123672 /* BVPPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F10C71CAEEFFB00123672 /* BVPPlayerView.swift */; };
+		12DA3A891D0B72D800EE7E26 /* BVPCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DA3A881D0B72D800EE7E26 /* BVPCatalogue.swift */; };
+		12DA3A8B1D0B735100EE7E26 /* BVPMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12DA3A8A1D0B735100EE7E26 /* BVPMedia.swift */; };
 		12F696401CB744360011B4AB /* BVPControlOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12F6963F1CB744360011B4AB /* BVPControlOverlay.swift */; };
 /* End PBXBuildFile section */
 
@@ -39,6 +41,8 @@
 		122F10BC1CAEEE8900123672 /* BuffyTheVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuffyTheVideoPlayerTests.swift; sourceTree = "<group>"; };
 		122F10BE1CAEEE8900123672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		122F10C71CAEEFFB00123672 /* BVPPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPPlayerView.swift; sourceTree = "<group>"; };
+		12DA3A881D0B72D800EE7E26 /* BVPCatalogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPCatalogue.swift; sourceTree = "<group>"; };
+		12DA3A8A1D0B735100EE7E26 /* BVPMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPMedia.swift; sourceTree = "<group>"; };
 		12F6963F1CB744360011B4AB /* BVPControlOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPControlOverlay.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -85,6 +89,8 @@
 				122F10A91CAEEE8900123672 /* BVPViewController.swift */,
 				122F10C71CAEEFFB00123672 /* BVPPlayerView.swift */,
 				12F6963F1CB744360011B4AB /* BVPControlOverlay.swift */,
+				12DA3A881D0B72D800EE7E26 /* BVPCatalogue.swift */,
+				12DA3A8A1D0B735100EE7E26 /* BVPMedia.swift */,
 				122F10AB1CAEEE8900123672 /* Main.storyboard */,
 				122F10AE1CAEEE8900123672 /* Assets.xcassets */,
 				122F10B01CAEEE8900123672 /* LaunchScreen.storyboard */,
@@ -205,6 +211,8 @@
 			files = (
 				122F10AA1CAEEE8900123672 /* BVPViewController.swift in Sources */,
 				12F696401CB744360011B4AB /* BVPControlOverlay.swift in Sources */,
+				12DA3A891D0B72D800EE7E26 /* BVPCatalogue.swift in Sources */,
+				12DA3A8B1D0B735100EE7E26 /* BVPMedia.swift in Sources */,
 				122F10C81CAEEFFB00123672 /* BVPPlayerView.swift in Sources */,
 				122F10A81CAEEE8900123672 /* BVPAppDelegate.swift in Sources */,
 			);

@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ay8-j4-eV7">
-                                <rect key="frame" x="30" y="230" width="540" height="360"/>
+                                <rect key="frame" x="30" y="410" width="540" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bvpcell" id="ZJK-vx-Eax">
@@ -38,7 +38,7 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView" customModule="BuffyTheVideoPlayer" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="540" height="190"/>
+                                <rect key="frame" x="30" y="30" width="540" height="370"/>
                                 <color key="backgroundColor" red="1" green="0.80516025777117406" blue="0.66058550549996209" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
@@ -51,7 +51,7 @@
                             <constraint firstItem="Ay8-j4-eV7" firstAttribute="centerX" secondItem="CHA-gD-rFI" secondAttribute="centerX" id="bOd-aC-NKu"/>
                             <constraint firstItem="F3I-Jg-JZJ" firstAttribute="width" secondItem="Ay8-j4-eV7" secondAttribute="width" id="bSD-eh-cI1"/>
                             <constraint firstItem="F3I-Jg-JZJ" firstAttribute="top" secondItem="Maw-rr-BN8" secondAttribute="bottom" constant="10" id="h1y-rs-7rV"/>
-                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="height" secondItem="CHA-gD-rFI" secondAttribute="height" multiplier="0.6" id="kEE-CK-JRJ"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="height" secondItem="CHA-gD-rFI" secondAttribute="height" multiplier="0.3" id="kEE-CK-JRJ"/>
                             <constraint firstItem="F3I-Jg-JZJ" firstAttribute="centerX" secondItem="CHA-gD-rFI" secondAttribute="centerX" id="qUh-5M-t9z"/>
                         </constraints>
                     </view>
