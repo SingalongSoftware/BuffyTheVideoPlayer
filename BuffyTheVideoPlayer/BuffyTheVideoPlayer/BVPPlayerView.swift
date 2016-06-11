@@ -23,7 +23,8 @@ class BVPPlayerView: UIView
     border(0.3)
   }
   
-  required init?(coder aDecoder: NSCoder) {
+  required init?(coder aDecoder: NSCoder)
+  {
     super.init(coder: aDecoder)
     border(0.3)
   }
@@ -32,7 +33,6 @@ class BVPPlayerView: UIView
   {
     self.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
     self.layer.borderWidth = 0.3
-    
   }
   
   override func layoutSubviews()

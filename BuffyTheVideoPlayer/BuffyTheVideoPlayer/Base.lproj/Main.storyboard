@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
@@ -20,14 +19,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Ay8-j4-eV7">
-                                <rect key="frame" x="30" y="410" width="540" height="180"/>
+                                <rect key="frame" x="10" y="410" width="580" height="180"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="bvpcell" id="ZJK-vx-Eax">
-                                        <rect key="frame" x="0.0" y="28" width="540" height="44"/>
+                                        <rect key="frame" x="0.0" y="28" width="580" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZJK-vx-Eax" id="XfG-w5-x93">
-                                            <rect key="frame" x="0.0" y="0.0" width="540" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="580" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -38,21 +37,54 @@
                                 </connections>
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView" customModule="BuffyTheVideoPlayer" customModuleProvider="target">
-                                <rect key="frame" x="30" y="30" width="540" height="370"/>
+                                <rect key="frame" x="10" y="30" width="580" height="370"/>
+                                <color key="backgroundColor" red="1" green="0.8051602578" blue="0.66058550549999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="Ay8-j4-eV7" secondAttribute="trailing" constant="10" id="1W5-21-G6l"/>
-                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="top" secondItem="F3I-Jg-JZJ" secondAttribute="bottom" constant="10" id="6kI-c9-mra"/>
-                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="leading" secondItem="CHA-gD-rFI" secondAttribute="leadingMargin" constant="10" id="Jmf-em-d6R"/>
-                            <constraint firstItem="hvN-Oh-lnd" firstAttribute="top" secondItem="Ay8-j4-eV7" secondAttribute="bottom" constant="10" id="MdQ-NP-VHu"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="trailing" secondItem="CHA-gD-rFI" secondAttribute="trailing" constant="-10" id="1W5-21-G6l"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="top" secondItem="F3I-Jg-JZJ" secondAttribute="bottom" constant="10" id="6kI-c9-mra" userLabel="vert spacer portrait"/>
+                            <constraint firstItem="F3I-Jg-JZJ" firstAttribute="width" secondItem="CHA-gD-rFI" secondAttribute="width" multiplier="0.6" id="B8a-My-LkN"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="top" secondItem="Maw-rr-BN8" secondAttribute="bottom" constant="10" id="GUz-OW-mSZ"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="leading" secondItem="CHA-gD-rFI" secondAttribute="leading" id="Jmf-em-d6R"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="bottom" secondItem="hvN-Oh-lnd" secondAttribute="top" constant="-10" id="MdQ-NP-VHu"/>
                             <constraint firstItem="Ay8-j4-eV7" firstAttribute="centerX" secondItem="CHA-gD-rFI" secondAttribute="centerX" id="bOd-aC-NKu"/>
                             <constraint firstItem="F3I-Jg-JZJ" firstAttribute="width" secondItem="Ay8-j4-eV7" secondAttribute="width" id="bSD-eh-cI1"/>
                             <constraint firstItem="F3I-Jg-JZJ" firstAttribute="top" secondItem="Maw-rr-BN8" secondAttribute="bottom" constant="10" id="h1y-rs-7rV"/>
+                            <constraint firstItem="F3I-Jg-JZJ" firstAttribute="trailing" secondItem="CHA-gD-rFI" secondAttribute="trailing" constant="-10" id="jNQ-S0-UMA"/>
                             <constraint firstItem="Ay8-j4-eV7" firstAttribute="height" secondItem="CHA-gD-rFI" secondAttribute="height" multiplier="0.3" id="kEE-CK-JRJ"/>
+                            <constraint firstItem="F3I-Jg-JZJ" firstAttribute="bottom" secondItem="hvN-Oh-lnd" secondAttribute="top" constant="-10" id="pYr-ml-Pi2"/>
                             <constraint firstItem="F3I-Jg-JZJ" firstAttribute="centerX" secondItem="CHA-gD-rFI" secondAttribute="centerX" id="qUh-5M-t9z"/>
+                            <constraint firstItem="Ay8-j4-eV7" firstAttribute="trailing" secondItem="F3I-Jg-JZJ" secondAttribute="leading" constant="-10" id="tWP-f3-Qel"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="GUz-OW-mSZ"/>
+                                <exclude reference="Jmf-em-d6R"/>
+                                <exclude reference="tWP-f3-Qel"/>
+                                <exclude reference="B8a-My-LkN"/>
+                                <exclude reference="jNQ-S0-UMA"/>
+                                <exclude reference="pYr-ml-Pi2"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=compact">
+                            <mask key="constraints">
+                                <exclude reference="1W5-21-G6l"/>
+                                <exclude reference="6kI-c9-mra"/>
+                                <include reference="GUz-OW-mSZ"/>
+                                <include reference="Jmf-em-d6R"/>
+                                <include reference="MdQ-NP-VHu"/>
+                                <exclude reference="bOd-aC-NKu"/>
+                                <exclude reference="kEE-CK-JRJ"/>
+                                <include reference="tWP-f3-Qel"/>
+                                <include reference="B8a-My-LkN"/>
+                                <exclude reference="bSD-eh-cI1"/>
+                                <include reference="jNQ-S0-UMA"/>
+                                <include reference="pYr-ml-Pi2"/>
+                                <exclude reference="qUh-5M-t9z"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="playerView" destination="F3I-Jg-JZJ" id="OYl-Wm-tqG"/>
