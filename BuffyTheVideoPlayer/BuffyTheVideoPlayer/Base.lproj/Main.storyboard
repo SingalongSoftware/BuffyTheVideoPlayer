@@ -38,7 +38,6 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView" customModule="BuffyTheVideoPlayer" customModuleProvider="target">
                                 <rect key="frame" x="10" y="30" width="580" height="370"/>
-                                <color key="backgroundColor" red="1" green="0.8051602578" blue="0.66058550549999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
