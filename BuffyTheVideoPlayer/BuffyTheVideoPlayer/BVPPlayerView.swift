@@ -17,6 +17,24 @@ class BVPPlayerView: UIView
   var playerLayer: AVPlayerLayer?
   var playerItem: AVPlayerItem?
   
+  override init(frame: CGRect)
+  {
+    super.init(frame: frame)
+    border(0.3)
+  }
+  
+  required init?(coder aDecoder: NSCoder) {
+    super.init(coder: aDecoder)
+    border(0.3)
+  }
+  
+  func border(alpha:CGFloat)
+  {
+    self.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
+    self.layer.borderWidth = 0.3
+    
+  }
+  
   override func layoutSubviews()
   {
     super.layoutSubviews()
@@ -28,16 +46,12 @@ class BVPPlayerView: UIView
     guard let item = playerItem else {return}
     
     player = AVPlayer(playerItem: item)
-    
-    if let playerLayer = playerLayer
-    {
-      playerLayer.removeFromSuperlayer()
-    }
+    playerLayer?.removeFromSuperlayer()
     
     playerLayer = AVPlayerLayer(player: player)
-    
     playerLayer!.frame = bounds
     layer.addSublayer(playerLayer!)
+    border(0)
     
     player.play()
 
@@ -53,8 +67,8 @@ class BVPPlayerView: UIView
   func redraw()
   {
     CATransaction.begin()
-    CATransaction.disableActions()
     playerLayer?.frame = bounds
+    CATransaction.disableActions()
     CATransaction.commit()
   }
   
