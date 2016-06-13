@@ -13,24 +13,45 @@ import Photos
 
 class BVPPlayerView: UIView
 {
+  let KEYPATH_STATUS = "status"
+  let KEYPATH_BUFFER_EMPTY = "playbackBufferEmpty"
+  let KEYPATH_PLAYBACK_CAN_KEEP_UP = "playbackLikelyToKeepUp"
+  let KEYPATH_LOADED_TIME_RANGES = "loadedTimeRanges"
+  let BUFFER_PLAYBACK_THRESHOLD = 10000
+  
   var player = AVPlayer()
   var playerLayer: AVPlayerLayer?
   var playerItem: AVPlayerItem?
+  var observers = [NSObjectProtocol]()
   
   override init(frame: CGRect)
   {
     super.init(frame: frame)
-    border(0.3)
+    commonInit()
   }
   
   required init?(coder aDecoder: NSCoder)
   {
     super.init(coder: aDecoder)
-    border(0.3)
+    commonInit()
   }
   
-  func border(alpha:CGFloat)
+  func commonInit()
   {
+    var observer = NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemDidPlayToEndTimeNotification, object: self, queue: nil)
+    { [unowned self] (notification:NSNotification) in
+      self.itemFinishedPlaying(notification)
+    }
+    
+    observers.append(observer)
+    
+    observer = NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemTimeJumpedNotification, object: self, queue: nil)
+    { [unowned self] (notification:NSNotification) in
+      self.jumpedToTime(notification)
+    }
+    
+    observers.append(observer)
+   
     self.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
     self.layer.borderWidth = 0.3
   }
@@ -43,6 +64,11 @@ class BVPPlayerView: UIView
   
   func play()
   {
+    player.play()
+  }
+  
+  func playX()
+  {
     guard let item = playerItem else {return}
     
     player = AVPlayer(playerItem: item)
@@ -51,17 +77,36 @@ class BVPPlayerView: UIView
     playerLayer = AVPlayerLayer(player: player)
     playerLayer!.frame = bounds
     layer.addSublayer(playerLayer!)
-    border(0)
+    self.layer.borderWidth = 0.0
     
     player.play()
+
+  }
+  
+  func setupPlayerLayer()
+  {
+    playerLayer?.removeFromSuperlayer()
+    playerLayer = AVPlayerLayer(player: player)
+    
+    playerLayer!.frame = bounds
+    layer.addSublayer(playerLayer!)
+    self.layer.borderWidth = 0.0
+
 
   }
   
   func playUrl(videoUrl:NSURL)
   {
     print ("Now playing: \(videoUrl.absoluteString)")
-    playerItem = AVPlayerItem(URL: videoUrl)
+//    playerItem = AVPlayerItem(URL: videoUrl)
+    
+    unregisterForPlayerEvents()
+    setupPlayer(videoUrl)
+    setupPlayerLayer()
+    registerForPlayerEvents()
+
     play()
+    
   }
   
   func redraw()
@@ -71,6 +116,65 @@ class BVPPlayerView: UIView
     CATransaction.disableActions()
     CATransaction.commit()
   }
+  
+  func setupPlayer(url:NSURL)
+  {
+    
+    playerItem = AVPlayerItem(URL: url)
+
+    player = AVPlayer(playerItem: playerItem!)
+    
+    player.currentItem?.audioTimePitchAlgorithm = AVAudioTimePitchAlgorithmTimeDomain;
+    
+    player.currentItem?.canUseNetworkResourcesForLiveStreamingWhilePaused = true;
+    player.currentItem?.preferredPeakBitRate = 2500000; // 2.5 Mbps
+  
+    player.actionAtItemEnd = .None;
+  
+  }
+  
+ 
+  func unregisterForPlayerEvents()
+  {
+    guard player.currentItem != nil else {return}
+    
+    player.removeObserver(self, forKeyPath: KEYPATH_STATUS)
+    
+    player.currentItem?.removeObserver(self, forKeyPath: KEYPATH_BUFFER_EMPTY)
+    
+    player.currentItem?.removeObserver(self, forKeyPath: KEYPATH_PLAYBACK_CAN_KEEP_UP)
+    
+    player.currentItem?.removeObserver(self, forKeyPath: KEYPATH_LOADED_TIME_RANGES)
+  }
+  
+  
+  func registerForPlayerEvents()
+  {
+    player.addObserver(self, forKeyPath: KEYPATH_STATUS, options: .New, context: nil)
+    
+    player.currentItem?.addObserver(self, forKeyPath: KEYPATH_BUFFER_EMPTY, options: .New, context: nil)
+    
+    player.currentItem?.addObserver(self, forKeyPath: KEYPATH_PLAYBACK_CAN_KEEP_UP, options: .New, context: nil)
+    
+    player.currentItem?.addObserver(self, forKeyPath: KEYPATH_LOADED_TIME_RANGES, options: .New, context: nil)
+  }
+  
+  func itemFinishedPlaying(notification:NSNotification)
+  {
+    
+  }
+  
+  func jumpedToTime(notification:NSNotification)
+  {
+    
+  }
+  
+  
+  override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  {
+    print ("EVENT: \(keyPath)")
+  }
+  
   
   
 }
