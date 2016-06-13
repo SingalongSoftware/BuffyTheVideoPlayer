@@ -53,22 +53,7 @@ class BVPPlayerView: UIView
     player.play()
   }
   
-  func playX()
-  {
-    guard let item = playerItem else {return}
-    
-    player = AVPlayer(playerItem: item)
-    playerLayer?.removeFromSuperlayer()
-    
-    playerLayer = AVPlayerLayer(player: player)
-    playerLayer!.frame = bounds
-    layer.addSublayer(playerLayer!)
-    self.layer.borderWidth = 0.0
-    
-    player.play()
 
-  }
-  
   func setupPlayerLayer()
   {
     playerLayer?.removeFromSuperlayer()
@@ -84,7 +69,6 @@ class BVPPlayerView: UIView
   func playUrl(videoUrl:NSURL)
   {
     print ("Now playing: \(videoUrl.absoluteString)")
-//    playerItem = AVPlayerItem(URL: videoUrl)
     
     unregisterForPlayerEvents()
     setupPlayer(videoUrl)
