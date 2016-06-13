@@ -20,10 +20,6 @@ class BVPCatalogue
     {
       return media[index]
     }
-    set(newValue)
-    {
-      media[index] = newValue
-    }
   }
   
   var count:Int
