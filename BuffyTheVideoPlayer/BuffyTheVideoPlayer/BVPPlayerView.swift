@@ -38,20 +38,6 @@ class BVPPlayerView: UIView
   
   func commonInit()
   {
-    var observer = NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemDidPlayToEndTimeNotification, object: self, queue: nil)
-    { [unowned self] (notification:NSNotification) in
-      self.itemFinishedPlaying(notification)
-    }
-    
-    observers.append(observer)
-    
-    observer = NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemTimeJumpedNotification, object: self, queue: nil)
-    { [unowned self] (notification:NSNotification) in
-      self.jumpedToTime(notification)
-    }
-    
-    observers.append(observer)
-   
     self.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
     self.layer.borderWidth = 0.3
   }
@@ -138,6 +124,10 @@ class BVPPlayerView: UIView
   {
     guard player.currentItem != nil else {return}
     
+    let _ = observers.map { (observer:NSObjectProtocol) -> () in
+      NSNotificationCenter.defaultCenter().removeObserver(observer)
+    }
+    
     player.removeObserver(self, forKeyPath: KEYPATH_STATUS)
     
     player.currentItem?.removeObserver(self, forKeyPath: KEYPATH_BUFFER_EMPTY)
@@ -150,6 +140,22 @@ class BVPPlayerView: UIView
   
   func registerForPlayerEvents()
   {
+    observers.removeAll()
+
+    var observer = NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemDidPlayToEndTimeNotification, object: player.currentItem!, queue: nil)
+    { [unowned self] (notification:NSNotification) in
+      self.itemFinishedPlaying(notification)
+    }
+    
+    observers.append(observer)
+    
+    observer = NSNotificationCenter.defaultCenter().addObserverForName(AVPlayerItemTimeJumpedNotification, object: player.currentItem!, queue: nil)
+    { [unowned self] (notification:NSNotification) in
+      self.jumpedToTime(notification)
+    }
+    
+    observers.append(observer)
+    
     player.addObserver(self, forKeyPath: KEYPATH_STATUS, options: .New, context: nil)
     
     player.currentItem?.addObserver(self, forKeyPath: KEYPATH_BUFFER_EMPTY, options: .New, context: nil)
@@ -161,11 +167,13 @@ class BVPPlayerView: UIView
   
   func itemFinishedPlaying(notification:NSNotification)
   {
-    
+    print ("EVENT: finish")
+
   }
   
   func jumpedToTime(notification:NSNotification)
   {
+    print ("EVENT: jump")
     
   }
   
