@@ -11,7 +11,7 @@ import Photos
 
 class BVPCatalogue
 {
-  let syncLock = "BVPCatalogue.lock"
+  let syncLock = dispatch_queue_create("BVPCatalogue.lock", nil)
   var media = [BVPMedia]()
   
   subscript(index: Int) -> BVPMedia
@@ -40,30 +40,35 @@ class BVPCatalogue
     
     print("\(videos)")
     
-    dispatch_sync(dispatch_queue_create(self.syncLock, nil))
+    dispatch_sync(syncLock)
     {
       self.media.removeAll()
       
       videos.enumerateObjectsUsingBlock(
-      { (enumeratedObject, index, stopPointer) in
+      { [unowned self] (enumeratedObject, index, stopPointer) in
           
         let video = enumeratedObject as! PHAsset
         let imageManager = PHImageManager.defaultManager()
         
         imageManager.requestAVAssetForVideo(video, options: nil, resultHandler:
-        { (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
-            
-          let avUrlAsset = avAsset as? AVURLAsset
-          print("\(index) \(avUrlAsset?.URL.absoluteString)")
+        { [unowned self] (avAsset:AVAsset?, audoMix:AVAudioMix?, info:[NSObject : AnyObject]?) in
           
-          self.media.append(BVPMedia(index: index, asset: video, url: (avUrlAsset?.URL)!))
-          
-          print ("\(self.media.count) =?= \(videos.count)")
-          if self.media.count == videos.count
+          dispatch_sync(self.syncLock)
           {
-            completion?()
+            let avUrlAsset = avAsset as? AVURLAsset
+            print("\(index) \(avUrlAsset?.URL.absoluteString)")
+            
+            self.media.append(BVPMedia(index: index, asset: video, url: (avUrlAsset?.URL)!))
+            
+            print ("\(self.media.count) =?= \(videos.count)")
+            if self.media.count == videos.count
+            {
+              completion?()
+            }
           }
+          
         })
+        
       })
     }
   }
