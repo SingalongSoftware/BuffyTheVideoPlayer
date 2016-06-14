@@ -67,7 +67,7 @@
 		122F109B1CAEEE8900123672 = {
 			isa = PBXGroup;
 			children = (
-				122F10A61CAEEE8900123672 /* BuffyTheVideoPlayer */,
+				122F10A61CAEEE8900123672 /* BuffyTheVideoPlayer.SampleApp */,
 				122F10BB1CAEEE8900123672 /* BuffyTheVideoPlayerTests */,
 				122F10A51CAEEE8900123672 /* Products */,
 			);
@@ -82,7 +82,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		122F10A61CAEEE8900123672 /* BuffyTheVideoPlayer */ = {
+		122F10A61CAEEE8900123672 /* BuffyTheVideoPlayer.SampleApp */ = {
 			isa = PBXGroup;
 			children = (
 				122F10A71CAEEE8900123672 /* BVPAppDelegate.swift */,
@@ -96,7 +96,7 @@
 				122F10B01CAEEE8900123672 /* LaunchScreen.storyboard */,
 				122F10B31CAEEE8900123672 /* Info.plist */,
 			);
-			path = BuffyTheVideoPlayer;
+			path = BuffyTheVideoPlayer.SampleApp;
 			sourceTree = "<group>";
 		};
 		122F10BB1CAEEE8900123672 /* BuffyTheVideoPlayerTests */ = {
@@ -343,7 +343,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = BuffyTheVideoPlayer/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BuffyTheVideoPlayer.SampleApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -354,7 +354,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = BuffyTheVideoPlayer/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/BuffyTheVideoPlayer.SampleApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
