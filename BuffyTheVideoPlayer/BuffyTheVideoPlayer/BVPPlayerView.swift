@@ -60,9 +60,9 @@ class BVPPlayerView: UIView
     playerLayer = AVPlayerLayer(player: player)
     
     playerLayer!.frame = bounds
+    playerLayer!.videoGravity = AVLayerVideoGravityResizeAspect
     layer.addSublayer(playerLayer!)
     self.layer.borderWidth = 0.0
-
 
   }
   
