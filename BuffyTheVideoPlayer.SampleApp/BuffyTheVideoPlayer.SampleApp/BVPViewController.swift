@@ -66,11 +66,8 @@ class BVPViewController: UIViewController, UITableViewDataSource, UITableViewDel
   
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
   {
-//    let mediaData = videoCatalogue[indexPath.row]
-//    print("\(mediaData)")
-//    print("\(mediaData.url)")
-//    print("\(playerView)")
-    print ("\(self.playerView.KEYPATH_STATUS)")
+    let mediaData = videoCatalogue[indexPath.row]
+    playerView.playUrl(mediaData.url)
   }
   
   

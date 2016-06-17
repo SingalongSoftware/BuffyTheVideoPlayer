@@ -32,6 +32,7 @@ public class BVPPlayerView: UIView
   
   required public init?(coder aDecoder: NSCoder)
   {
+    print("init aDecoder")
     super.init(coder: aDecoder)
     commonInit()
   }
@@ -39,7 +40,7 @@ public class BVPPlayerView: UIView
   func commonInit()
   {
     self.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
-    self.layer.borderWidth = 0.3
+    self.layer.borderWidth = 0.3    
   }
   
   override public func layoutSubviews()
@@ -66,10 +67,8 @@ public class BVPPlayerView: UIView
 
   }
   
-  //  public func playUrl(videoUrl:NSURL)
-  public func playUrl()
+  public func playUrl(videoUrl:NSURL)
   {
-    let videoUrl = NSURL()
     print ("Now playing: \(videoUrl.absoluteString)")
     
     unregisterForPlayerEvents()

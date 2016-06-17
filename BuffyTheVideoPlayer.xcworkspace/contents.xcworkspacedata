@@ -2,9 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:BuffyTheVideoPlayer.SampleApp/BuffyTheVideoPlayer.SampleApp.xcodeproj">
+      location = "group:BuffyTheVideoPlayer/BuffyTheVideoPlayer.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:BuffyTheVideoPlayer/BuffyTheVideoPlayer.xcodeproj">
+      location = "group:BuffyTheVideoPlayer.SampleApp/BuffyTheVideoPlayer.SampleApp.xcodeproj">
    </FileRef>
 </Workspace>

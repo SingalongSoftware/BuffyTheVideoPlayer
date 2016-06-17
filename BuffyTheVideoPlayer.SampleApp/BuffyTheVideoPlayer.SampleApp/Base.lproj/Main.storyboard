@@ -36,7 +36,7 @@
                                     <outlet property="delegate" destination="1yC-h4-QIX" id="Wpj-mx-N2w"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView" customModule="BuffyTheVideoPlayer">
                                 <rect key="frame" x="10" y="30" width="580" height="370"/>
                             </view>
                         </subviews>
