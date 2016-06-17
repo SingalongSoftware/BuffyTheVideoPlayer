@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Workspace
    version = "1.0">
+   <FileRef
+      location = "group:BuffyTheVideoPlayer.SampleApp/BuffyTheVideoPlayer.SampleApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:BuffyTheVideoPlayer/BuffyTheVideoPlayer.xcodeproj">
+   </FileRef>
 </Workspace>
