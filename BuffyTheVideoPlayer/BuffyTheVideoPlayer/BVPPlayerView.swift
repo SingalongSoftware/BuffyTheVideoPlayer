@@ -11,9 +11,9 @@ import AVFoundation
 import Photos
 
 
-class BVPPlayerView: UIView
+public class BVPPlayerView: UIView
 {
-  let KEYPATH_STATUS = "status"
+  public let KEYPATH_STATUS = "status"
   let KEYPATH_BUFFER_EMPTY = "playbackBufferEmpty"
   let KEYPATH_PLAYBACK_CAN_KEEP_UP = "playbackLikelyToKeepUp"
   let KEYPATH_LOADED_TIME_RANGES = "loadedTimeRanges"
@@ -30,7 +30,7 @@ class BVPPlayerView: UIView
     commonInit()
   }
   
-  required init?(coder aDecoder: NSCoder)
+  required public init?(coder aDecoder: NSCoder)
   {
     super.init(coder: aDecoder)
     commonInit()
@@ -42,7 +42,7 @@ class BVPPlayerView: UIView
     self.layer.borderWidth = 0.3
   }
   
-  override func layoutSubviews()
+  override public func layoutSubviews()
   {
     super.layoutSubviews()
     redraw()
@@ -66,8 +66,10 @@ class BVPPlayerView: UIView
 
   }
   
-  func playUrl(videoUrl:NSURL)
+  //  public func playUrl(videoUrl:NSURL)
+  public func playUrl()
   {
+    let videoUrl = NSURL()
     print ("Now playing: \(videoUrl.absoluteString)")
     
     unregisterForPlayerEvents()
@@ -162,7 +164,7 @@ class BVPPlayerView: UIView
   }
   
   
-  override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
+  override public func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<Void>)
   {
     print ("EVENT: \(keyPath)")
   }

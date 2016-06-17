@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import BuffyTheVideoPlayer
 
 @UIApplicationMain
 class BVPAppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+//  var x:BVP
+  
+  
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.

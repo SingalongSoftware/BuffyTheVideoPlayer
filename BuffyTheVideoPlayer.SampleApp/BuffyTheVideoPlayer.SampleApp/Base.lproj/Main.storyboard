@@ -9,7 +9,7 @@
         <!--View Controller-->
         <scene sceneID="N3s-BJ-whs">
             <objects>
-                <viewController id="1yC-h4-QIX" customClass="BVPViewController" customModule="BuffyTheVideoPlayer" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="1yC-h4-QIX" customClass="BVPViewController" customModule="BuffyTheVideoPlayer_SampleApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Maw-rr-BN8"/>
                         <viewControllerLayoutGuide type="bottom" id="hvN-Oh-lnd"/>
@@ -36,7 +36,7 @@
                                     <outlet property="delegate" destination="1yC-h4-QIX" id="Wpj-mx-N2w"/>
                                 </connections>
                             </tableView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView" customModule="BuffyTheVideoPlayer" customModuleProvider="target">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="F3I-Jg-JZJ" customClass="BVPPlayerView">
                                 <rect key="frame" x="10" y="30" width="580" height="370"/>
                             </view>
                         </subviews>
@@ -59,16 +59,21 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="GUz-OW-mSZ"/>
-                                <exclude reference="Jmf-em-d6R"/>
-                                <exclude reference="tWP-f3-Qel"/>
                                 <exclude reference="B8a-My-LkN"/>
                                 <exclude reference="jNQ-S0-UMA"/>
                                 <exclude reference="pYr-ml-Pi2"/>
+                                <exclude reference="GUz-OW-mSZ"/>
+                                <exclude reference="Jmf-em-d6R"/>
+                                <exclude reference="tWP-f3-Qel"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="B8a-My-LkN"/>
+                                <exclude reference="bSD-eh-cI1"/>
+                                <include reference="jNQ-S0-UMA"/>
+                                <include reference="pYr-ml-Pi2"/>
+                                <exclude reference="qUh-5M-t9z"/>
                                 <exclude reference="1W5-21-G6l"/>
                                 <exclude reference="6kI-c9-mra"/>
                                 <include reference="GUz-OW-mSZ"/>
@@ -77,11 +82,6 @@
                                 <exclude reference="bOd-aC-NKu"/>
                                 <exclude reference="kEE-CK-JRJ"/>
                                 <include reference="tWP-f3-Qel"/>
-                                <include reference="B8a-My-LkN"/>
-                                <exclude reference="bSD-eh-cI1"/>
-                                <include reference="jNQ-S0-UMA"/>
-                                <include reference="pYr-ml-Pi2"/>
-                                <exclude reference="qUh-5M-t9z"/>
                             </mask>
                         </variation>
                     </view>

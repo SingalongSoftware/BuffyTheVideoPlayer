@@ -9,13 +9,13 @@
 import UIKit
 import Photos
 
-class BVPMedia
+public class BVPMedia
 {
-  var index:Int
-  var asset:PHAsset
-  var url:NSURL
+  public var index:Int
+  public var asset:PHAsset
+  public var url:NSURL
   
-  init (index:Int, asset:PHAsset, url:NSURL)
+  public init (index:Int, asset:PHAsset, url:NSURL)
   {
     self.index = index
     self.asset = asset

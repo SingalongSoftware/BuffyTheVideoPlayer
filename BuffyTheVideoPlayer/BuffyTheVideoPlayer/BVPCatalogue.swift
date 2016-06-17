@@ -9,12 +9,14 @@
 import UIKit
 import Photos
 
-class BVPCatalogue
+public class BVPCatalogue
 {
   let syncLock = dispatch_queue_create("BVPCatalogue.lock", nil)
   var media = [BVPMedia]()
   
-  subscript(index: Int) -> BVPMedia
+  public init() { }
+  
+  public subscript(index: Int) -> BVPMedia
   {
     get
     {
@@ -22,7 +24,7 @@ class BVPCatalogue
     }
   }
   
-  var count:Int
+  public var count:Int
   {
     get
     {
@@ -30,7 +32,7 @@ class BVPCatalogue
     }
   }
   
-  func fetch(type:PHAssetMediaType, completion:(() -> Void)?)
+  public func fetch(type:PHAssetMediaType, completion:(() -> Void)?)
   {
     let videos = PHAsset.fetchAssetsWithMediaType(type, options:nil)
     

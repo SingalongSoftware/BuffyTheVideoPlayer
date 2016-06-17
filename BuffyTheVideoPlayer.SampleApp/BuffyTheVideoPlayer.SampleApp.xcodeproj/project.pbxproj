@@ -12,6 +12,9 @@
 		122F10AF1CAEEE8900123672 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 122F10AE1CAEEE8900123672 /* Assets.xcassets */; };
 		122F10B21CAEEE8900123672 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 122F10B01CAEEE8900123672 /* LaunchScreen.storyboard */; };
 		122F10BD1CAEEE8900123672 /* BuffyTheVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122F10BC1CAEEE8900123672 /* BuffyTheVideoPlayerTests.swift */; };
+		1287D9A71D1498E7000A869C /* BVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D9A61D1498E7000A869C /* BVPViewController.swift */; };
+		1287D9AD1D149CBD000A869C /* BuffyTheVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1287D9AC1D149CBD000A869C /* BuffyTheVideoPlayer.framework */; };
+		1287D9AE1D149CBD000A869C /* BuffyTheVideoPlayer.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1287D9AC1D149CBD000A869C /* BuffyTheVideoPlayer.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,6 +27,20 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		1287D9AB1D149C95000A869C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1287D9AE1D149CBD000A869C /* BuffyTheVideoPlayer.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		122F10A41CAEEE8900123672 /* BuffyTheVideoPlayer.SampleApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BuffyTheVideoPlayer.SampleApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		122F10A71CAEEE8900123672 /* BVPAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BVPAppDelegate.swift; sourceTree = "<group>"; };
@@ -34,6 +51,8 @@
 		122F10B81CAEEE8900123672 /* BuffyTheVideoPlayer.SampleApp.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuffyTheVideoPlayer.SampleApp.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		122F10BC1CAEEE8900123672 /* BuffyTheVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuffyTheVideoPlayerTests.swift; sourceTree = "<group>"; };
 		122F10BE1CAEEE8900123672 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1287D9A61D1498E7000A869C /* BVPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPViewController.swift; sourceTree = "<group>"; };
+		1287D9AC1D149CBD000A869C /* BuffyTheVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; name = BuffyTheVideoPlayer.framework; path = "/Users/asu/Library/Developer/Xcode/DerivedData/BuffyTheVideoPlayer-erqfwdlnhrdrghfqelqxazrpuhiw/Build/Products/Debug-iphoneos/BuffyTheVideoPlayer.framework"; sourceTree = "<absolute>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1287D9AD1D149CBD000A869C /* BuffyTheVideoPlayer.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +80,7 @@
 				122F10A61CAEEE8900123672 /* BuffyTheVideoPlayer.SampleApp */,
 				122F10BB1CAEEE8900123672 /* BuffyTheVideoPlayerTests */,
 				122F10A51CAEEE8900123672 /* Products */,
+				1287D9AF1D14A42E000A869C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +96,7 @@
 		122F10A61CAEEE8900123672 /* BuffyTheVideoPlayer.SampleApp */ = {
 			isa = PBXGroup;
 			children = (
+				1287D9A61D1498E7000A869C /* BVPViewController.swift */,
 				122F10A71CAEEE8900123672 /* BVPAppDelegate.swift */,
 				122F10AB1CAEEE8900123672 /* Main.storyboard */,
 				122F10AE1CAEEE8900123672 /* Assets.xcassets */,
@@ -93,6 +115,14 @@
 			path = BuffyTheVideoPlayerTests;
 			sourceTree = "<group>";
 		};
+		1287D9AF1D14A42E000A869C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1287D9AC1D149CBD000A869C /* BuffyTheVideoPlayer.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -103,6 +133,7 @@
 				122F10A01CAEEE8900123672 /* Sources */,
 				122F10A11CAEEE8900123672 /* Frameworks */,
 				122F10A21CAEEE8900123672 /* Resources */,
+				1287D9AB1D149C95000A869C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -195,6 +226,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				122F10A81CAEEE8900123672 /* BVPAppDelegate.swift in Sources */,
+				1287D9A71D1498E7000A869C /* BVPViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -325,7 +357,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/BuffyTheVideoPlayer.SampleApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer.SampleApp;
 				PRODUCT_NAME = BuffyTheVideoPlayer.SampleApp;
 			};
 			name = Debug;
@@ -336,7 +368,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "$(SRCROOT)/BuffyTheVideoPlayer.SampleApp/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer;
+				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer.SampleApp;
 				PRODUCT_NAME = BuffyTheVideoPlayer.SampleApp;
 			};
 			name = Release;

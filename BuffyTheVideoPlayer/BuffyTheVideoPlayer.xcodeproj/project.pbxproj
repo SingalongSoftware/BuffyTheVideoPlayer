@@ -13,7 +13,7 @@
 		1287D99E1D13A5EB000A869C /* BVPControlOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D9991D13A5EB000A869C /* BVPControlOverlay.swift */; };
 		1287D99F1D13A5EB000A869C /* BVPMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D99A1D13A5EB000A869C /* BVPMedia.swift */; };
 		1287D9A01D13A5EB000A869C /* BVPPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */; };
-		1287D9A11D13A5EB000A869C /* BVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D99C1D13A5EB000A869C /* BVPViewController.swift */; };
+		1287D9A51D13AA21000A869C /* BVPPlayerView.swift in Headers */ = {isa = PBXBuildFile; fileRef = 1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,7 +36,6 @@
 		1287D9991D13A5EB000A869C /* BVPControlOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPControlOverlay.swift; sourceTree = "<group>"; };
 		1287D99A1D13A5EB000A869C /* BVPMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPMedia.swift; sourceTree = "<group>"; };
 		1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPPlayerView.swift; sourceTree = "<group>"; };
-		1287D99C1D13A5EB000A869C /* BVPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +82,6 @@
 				1287D9991D13A5EB000A869C /* BVPControlOverlay.swift */,
 				1287D99A1D13A5EB000A869C /* BVPMedia.swift */,
 				1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */,
-				1287D99C1D13A5EB000A869C /* BVPViewController.swift */,
 				1287D9541D13A436000A869C /* Info.plist */,
 			);
 			path = BuffyTheVideoPlayer;
@@ -105,6 +103,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1287D9A51D13AA21000A869C /* BVPPlayerView.swift in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +206,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1287D9A11D13A5EB000A869C /* BVPViewController.swift in Sources */,
 				1287D99F1D13A5EB000A869C /* BVPMedia.swift in Sources */,
 				1287D99D1D13A5EB000A869C /* BVPCatalogue.swift in Sources */,
 				1287D9A01D13A5EB000A869C /* BVPPlayerView.swift in Sources */,
