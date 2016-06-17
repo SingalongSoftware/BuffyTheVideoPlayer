@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1287D9531D13A436000A869C /* BuffyTheVideoPlayer.h in Headers */ = {isa = PBXBuildFile; fileRef = 1287D9521D13A436000A869C /* BuffyTheVideoPlayer.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		1287D95A1D13A436000A869C /* BuffyTheVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1287D94F1D13A436000A869C /* BuffyTheVideoPlayer.framework */; };
 		1287D95F1D13A436000A869C /* BuffyTheVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D95E1D13A436000A869C /* BuffyTheVideoPlayerTests.swift */; };
+		1287D99D1D13A5EB000A869C /* BVPCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D9981D13A5EB000A869C /* BVPCatalogue.swift */; };
+		1287D99E1D13A5EB000A869C /* BVPControlOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D9991D13A5EB000A869C /* BVPControlOverlay.swift */; };
+		1287D99F1D13A5EB000A869C /* BVPMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D99A1D13A5EB000A869C /* BVPMedia.swift */; };
+		1287D9A01D13A5EB000A869C /* BVPPlayerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */; };
+		1287D9A11D13A5EB000A869C /* BVPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D99C1D13A5EB000A869C /* BVPViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -24,11 +28,15 @@
 
 /* Begin PBXFileReference section */
 		1287D94F1D13A436000A869C /* BuffyTheVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BuffyTheVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1287D9521D13A436000A869C /* BuffyTheVideoPlayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BuffyTheVideoPlayer.h; sourceTree = "<group>"; };
 		1287D9541D13A436000A869C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1287D9591D13A436000A869C /* BuffyTheVideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuffyTheVideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1287D95E1D13A436000A869C /* BuffyTheVideoPlayerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuffyTheVideoPlayerTests.swift; sourceTree = "<group>"; };
 		1287D9601D13A436000A869C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		1287D9981D13A5EB000A869C /* BVPCatalogue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPCatalogue.swift; sourceTree = "<group>"; };
+		1287D9991D13A5EB000A869C /* BVPControlOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPControlOverlay.swift; sourceTree = "<group>"; };
+		1287D99A1D13A5EB000A869C /* BVPMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPMedia.swift; sourceTree = "<group>"; };
+		1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPPlayerView.swift; sourceTree = "<group>"; };
+		1287D99C1D13A5EB000A869C /* BVPViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BVPViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,7 +79,11 @@
 		1287D9511D13A436000A869C /* BuffyTheVideoPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				1287D9521D13A436000A869C /* BuffyTheVideoPlayer.h */,
+				1287D9981D13A5EB000A869C /* BVPCatalogue.swift */,
+				1287D9991D13A5EB000A869C /* BVPControlOverlay.swift */,
+				1287D99A1D13A5EB000A869C /* BVPMedia.swift */,
+				1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */,
+				1287D99C1D13A5EB000A869C /* BVPViewController.swift */,
 				1287D9541D13A436000A869C /* Info.plist */,
 			);
 			path = BuffyTheVideoPlayer;
@@ -93,7 +105,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1287D9531D13A436000A869C /* BuffyTheVideoPlayer.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -148,6 +159,7 @@
 				TargetAttributes = {
 					1287D94E1D13A436000A869C = {
 						CreatedOnToolsVersion = 7.3;
+						DevelopmentTeam = 65JJ25F4V6;
 					};
 					1287D9581D13A436000A869C = {
 						CreatedOnToolsVersion = 7.3;
@@ -195,6 +207,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1287D9A11D13A5EB000A869C /* BVPViewController.swift in Sources */,
+				1287D99F1D13A5EB000A869C /* BVPMedia.swift in Sources */,
+				1287D99D1D13A5EB000A869C /* BVPCatalogue.swift in Sources */,
+				1287D9A01D13A5EB000A869C /* BVPPlayerView.swift in Sources */,
+				1287D99E1D13A5EB000A869C /* BVPControlOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -311,6 +328,8 @@
 		1287D9641D13A436000A869C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -321,12 +340,15 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.SingalongSoftware.BuffyTheVideoPlayer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
 		1287D9651D13A436000A869C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
