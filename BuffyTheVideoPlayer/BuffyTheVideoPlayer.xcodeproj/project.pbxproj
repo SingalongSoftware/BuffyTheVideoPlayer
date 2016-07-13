@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		120C13441D361BAB005C910A /* NSLayoutConstraint+VisualConstraints.swift in Sources */ = {isa = PBXBuildFile; fileRef = 120C13431D361BAB005C910A /* NSLayoutConstraint+VisualConstraints.swift */; };
 		1287D95A1D13A436000A869C /* BuffyTheVideoPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1287D94F1D13A436000A869C /* BuffyTheVideoPlayer.framework */; };
 		1287D95F1D13A436000A869C /* BuffyTheVideoPlayerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D95E1D13A436000A869C /* BuffyTheVideoPlayerTests.swift */; };
 		1287D99D1D13A5EB000A869C /* BVPCatalogue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1287D9981D13A5EB000A869C /* BVPCatalogue.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		120C13431D361BAB005C910A /* NSLayoutConstraint+VisualConstraints.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "NSLayoutConstraint+VisualConstraints.swift"; path = "Extensions/NSLayoutConstraint+VisualConstraints.swift"; sourceTree = "<group>"; };
 		1287D94F1D13A436000A869C /* BuffyTheVideoPlayer.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = BuffyTheVideoPlayer.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1287D9541D13A436000A869C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1287D9591D13A436000A869C /* BuffyTheVideoPlayerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BuffyTheVideoPlayerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +59,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		120C13451D361BB2005C910A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				120C13431D361BAB005C910A /* NSLayoutConstraint+VisualConstraints.swift */,
+			);
+			name = Extensions;
+			sourceTree = "<group>";
+		};
 		1287D9451D13A436000A869C = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +93,7 @@
 				1287D99A1D13A5EB000A869C /* BVPMedia.swift */,
 				1287D99B1D13A5EB000A869C /* BVPPlayerView.swift */,
 				1287D9541D13A436000A869C /* Info.plist */,
+				120C13451D361BB2005C910A /* Extensions */,
 			);
 			path = BuffyTheVideoPlayer;
 			sourceTree = "<group>";
@@ -207,6 +218,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1287D99F1D13A5EB000A869C /* BVPMedia.swift in Sources */,
+				120C13441D361BAB005C910A /* NSLayoutConstraint+VisualConstraints.swift in Sources */,
 				1287D99D1D13A5EB000A869C /* BVPCatalogue.swift in Sources */,
 				1287D9A01D13A5EB000A869C /* BVPPlayerView.swift in Sources */,
 				1287D99E1D13A5EB000A869C /* BVPControlOverlay.swift in Sources */,
@@ -399,6 +411,7 @@
 				1287D9651D13A436000A869C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		1287D9661D13A436000A869C /* Build configuration list for PBXNativeTarget "BuffyTheVideoPlayerTests" */ = {
 			isa = XCConfigurationList;
@@ -407,6 +420,7 @@
 				1287D9681D13A436000A869C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

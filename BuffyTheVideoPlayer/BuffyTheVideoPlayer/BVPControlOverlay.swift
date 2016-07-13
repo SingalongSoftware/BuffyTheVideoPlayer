@@ -8,14 +8,47 @@
 
 import UIKit
 
-class BVPControlOverlay: UIView {
+@IBDesignable
 
-    /*
-    // Only override drawRect: if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func drawRect(rect: CGRect) {
-        // Drawing code
+public class BVPControlOverlay: UIView
+{
+  var pausePlayButton: UIButton = UIButton()
+  var stopButton: UIButton = UIButton()
+  var seekBar: UIView = UIView()
+  
+  public override init (frame : CGRect)
+  {
+    super.init(frame : frame)
+    commonInit()
+  }
+  
+  convenience init ()
+  {
+    self.init(frame:CGRect.zero)
+    commonInit()
+  }
+  
+  public convenience required init(coder aDecoder: NSCoder)
+  {
+    self.init(coder: aDecoder)
+    commonInit()
+  }
+  
+  func commonInit ()
+  {
+    let views = ["thisView":self, "pausePlayButton":pausePlayButton];
+
+    for view in views.values
+    {
+      view.translatesAutoresizingMaskIntoConstraints = false
     }
-    */
+    
+    addSubview(pausePlayButton)
+    pausePlayButton.backgroundColor = UIColor.blueColor()
+    addConstraints( NSLayoutConstraint.visualConstraints("H:|-0-[pausePlayButton(20)]", views:views) )
+    addConstraints( NSLayoutConstraint.visualConstraints("V:|-0-[pausePlayButton(20)]", views:views) )
 
+  }
+  
+  
 }

@@ -13,7 +13,7 @@ import Photos
 
 public class BVPPlayerView: UIView
 {
-  public let KEYPATH_STATUS = "status"
+  let KEYPATH_STATUS = "status"
   let KEYPATH_BUFFER_EMPTY = "playbackBufferEmpty"
   let KEYPATH_PLAYBACK_CAN_KEEP_UP = "playbackLikelyToKeepUp"
   let KEYPATH_LOADED_TIME_RANGES = "loadedTimeRanges"
@@ -24,6 +24,8 @@ public class BVPPlayerView: UIView
   var playerItem: AVPlayerItem?
   var observers = [NSObjectProtocol]()
   
+  let control = BVPControlOverlay()
+  
   override init(frame: CGRect)
   {
     super.init(frame: frame)
@@ -32,15 +34,30 @@ public class BVPPlayerView: UIView
   
   required public init?(coder aDecoder: NSCoder)
   {
-    print("init aDecoder")
     super.init(coder: aDecoder)
     commonInit()
   }
   
   func commonInit()
   {
-    self.layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
-    self.layer.borderWidth = 0.3    
+    layer.borderColor = UIColor.blackColor().colorWithAlphaComponent(alpha).CGColor;
+    layer.borderWidth = 0.3
+    
+    constraintsForControlOverlay()
+  }
+  
+  public func constraintsForControlOverlay()
+  {
+    let views = ["player":self, "overlay":control];
+    
+    control.hidden = false
+    control.backgroundColor = UIColor.orangeColor()
+    control.translatesAutoresizingMaskIntoConstraints = false
+    
+    addSubview(control)
+    addConstraints( NSLayoutConstraint.visualConstraints("H:|-0-[overlay]-0-|", views:views) )
+    addConstraints( NSLayoutConstraint.visualConstraints("V:[overlay(30)]-|", views:views) )
+    
   }
   
   override public func layoutSubviews()
@@ -65,6 +82,8 @@ public class BVPPlayerView: UIView
     layer.addSublayer(playerLayer!)
     self.layer.borderWidth = 0.0
 
+    
+    bringSubviewToFront(control)
   }
   
   public func playUrl(videoUrl:NSURL)
@@ -84,6 +103,7 @@ public class BVPPlayerView: UIView
   {
     CATransaction.begin()
     playerLayer?.frame = bounds
+    bringSubviewToFront(control)
     CATransaction.disableActions()
     CATransaction.commit()
   }
